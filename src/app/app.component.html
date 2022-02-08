@@ -15,16 +15,18 @@
   <table class="table container">
     <thead>
       <tr>
+        <th scope="col">ID</th>
         <th scope="col">Name</th>
         <th scope="col">Phone</th>
         <th scope="col">Email</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let row of rows; index as i">
-        <td>Name {{i+1}}</td>
-        <td>Phone {{i+1}}</td>
-        <td>Email {{i+1}}</td>
+      <tr *ngFor="let contact of contacts; index as i">
+        <td>{{contact.id}}</td>
+        <td>{{contact.name}}</td>
+        <td>{{contact.phone}}</td>
+        <td>{{contact.email}}</td>
       </tr>
     </tbody>
   </table>

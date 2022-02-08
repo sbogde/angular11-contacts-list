@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ContactsService } from './contacts.service';
 
 @Component({
   selector: 'app-root',
@@ -8,9 +9,14 @@ import { Component } from '@angular/core';
 
 export class AppComponent {
   title = 'angular11-contacts-list';
-  rows = [...Array(10).keys()];
+  // rows = [...Array(10).keys()];
+  contacts = this.contactsSrv.entriesArray
+
+  constructor(public contactsSrv: ContactsService){
+  }
 
   ngOnInit(){
-    console.log(this.rows)
+    // console.log(this.contacts);
+    // console.log(this.contactsSrv.entriesArray);
   }
 }
