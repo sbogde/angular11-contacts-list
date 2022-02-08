@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ContactsService } from '../contacts.service';
 
 @Component({
@@ -7,12 +7,15 @@ import { ContactsService } from '../contacts.service';
   styleUrls: ['./contacts-list.component.css']
 })
 export class ContactsListComponent implements OnInit {
-  contacts = this.contactsSrv.entriesArray;
-  showEmail = true;
+  @Input() showEmail: boolean;
 
-  constructor(public contactsSrv: ContactsService) { }
+  contacts = this.contactsSrv.entriesArray;
+
+  constructor(public contactsSrv: ContactsService) { 
+  }
 
   ngOnInit(): void {
+    console.log('ngOnInit', this.showEmail, typeof this.showEmail, Boolean(this.showEmail))
   }
 
   showHideEmail() {
