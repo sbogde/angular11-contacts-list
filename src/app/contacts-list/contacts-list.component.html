@@ -1,10 +1,15 @@
+<br/>
+<div class="container">
+  <button (click)="showHideEmail()">Show/Hide Email</button>
+</div>
+
 <table class="table container">
   <thead>
     <tr>
       <th scope="col">ID</th>
       <th scope="col">Name</th>
       <th scope="col">Phone</th>
-      <th scope="col">Email</th>
+      <th scope="col" [hidden]="!showEmail">Email</th>
     </tr>
   </thead>
   <tbody>
@@ -12,7 +17,7 @@
       <td>{{contact.id}}</td>
       <td>{{contact.name}}</td>
       <td>{{contact.phone}}</td>
-      <td>{{contact.email}}</td>
+      <td [hidden]="!showEmail">{{contact.email}}</td>
     </tr>
   </tbody>
 </table>

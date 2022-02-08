@@ -7,11 +7,15 @@ import { ContactsService } from '../contacts.service';
   styleUrls: ['./contacts-list.component.css']
 })
 export class ContactsListComponent implements OnInit {
-  contacts = this.contactsSrv.entriesArray
+  contacts = this.contactsSrv.entriesArray;
+  showEmail = true;
 
   constructor(public contactsSrv: ContactsService) { }
 
   ngOnInit(): void {
   }
 
+  showHideEmail() {
+    this.showEmail = !this.showEmail;
+  }
 }
