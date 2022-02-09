@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ContactsService } from '../contacts.service';
+import { Contact } from '../model/contact';
 
 @Component({
   selector: 'app-contacts-list',
@@ -8,17 +9,25 @@ import { ContactsService } from '../contacts.service';
 })
 export class ContactsListComponent implements OnInit {
   @Input() showEmail: boolean;
-
-  contacts = this.contactsSrv.entriesArray;
+  contacts: Contact[];
 
   constructor(public contactsSrv: ContactsService) { 
   }
 
   ngOnInit(): void {
-    console.log('ngOnInit', this.showEmail, typeof this.showEmail, Boolean(this.showEmail))
+    this.getContacts()
+  }
+
+  getContacts(){
+    this.contacts = this.contactsSrv.entriesArray;
   }
 
   showHideEmail() {
     this.showEmail = !this.showEmail;
+  }
+
+  createContactParent(contact: Contact) {
+    this.contactsSrv.addContact(contact);
+    this.getContacts();
   }
 }
