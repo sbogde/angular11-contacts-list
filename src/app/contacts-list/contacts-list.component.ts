@@ -19,7 +19,9 @@ export class ContactsListComponent implements OnInit {
   }
 
   getContacts(){
-    this.contacts = this.contactsSrv.entriesArray;
+    this.contactsSrv.getEntries().subscribe(contacts => {
+      this.contacts = contacts;
+    });
   }
 
   showHideEmail() {
