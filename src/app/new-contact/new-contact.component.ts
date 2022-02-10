@@ -9,14 +9,21 @@ import { Contact } from '../model/contact';
 
 export class NewContactComponent implements OnInit {
   @Output() contactEvent = new EventEmitter<Contact>();
+  newContact: Contact;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.resetForm()
   }
 
-  createContact($event) {
-    $event.preventDefault();
-    this.contactEvent.emit( {id: 6, name:"John DoeX", phone:"123-456-7899", email: "testX@test.com"})
+  createContact() {
+    const {name, phone, email} = this.newContact;
+    this.contactEvent.emit( {id:-1, name, phone, email});
+    this.resetForm();
+  }
+
+  resetForm(){
+    this.newContact = {id:0, name:'', phone:'', email:''}
   }
 }

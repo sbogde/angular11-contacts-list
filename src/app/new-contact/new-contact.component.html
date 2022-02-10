@@ -1,8 +1,11 @@
 <div class="card">
   <div class="card-header text-left"><h5>Add New Contact</h5></div>
   <div class="card-body">
-    <form  class="form-inline">
-      <button (click)="createContact($event)" class="btn btn-primary my-1" >Add New Contact</button>
+    <form #contactForm="ngForm" class="form-inline">
+      <input type="text" name="name" id="name" class="form-control" autocomplete="off" placeholder="Name" [(ngModel)]="newContact.name" required> 
+      <input type="text" name="name" id="phone" class="form-control" autocomplete="off" placeholder="Phone" [(ngModel)]="newContact.phone" required> 
+      <input type="text" name="name" id="email" class="form-control" autocomplete="off" placeholder="Email" [(ngModel)]="newContact.email" required> 
+      <button (click)="createContact()" [disabled]="contactForm.form.invalid" class="btn btn-primary my-1" >Add New Contact</button>
     </form>
   </div>
 </div>
