@@ -24,14 +24,7 @@ export class ContactsService {
   }
 
   addContact(contact: Contact) {
-    // contact.id = getMaxId(this.entriesArray) + 1;
-    // this.entriesArray = [...this.entriesArray, { ...contact}];
+    return this.http.post('/api/contacts', contact);
   }
 
-}
-
-function getMaxId(data) {
-  return data.reduce((p, c) => {
-    return Math.max(p, c.id);
-  },0)
 }

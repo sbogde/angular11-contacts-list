@@ -18,8 +18,7 @@ export class NewContactComponent implements OnInit {
   }
 
   createContact() {
-    const {name, phone, email} = this.newContact;
-    this.contactEvent.emit( {id:-1, name, phone, email});
+    this.contactEvent.emit( this.newContact);
     this.resetForm();
   }
 

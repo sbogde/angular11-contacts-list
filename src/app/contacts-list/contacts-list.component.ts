@@ -29,7 +29,6 @@ export class ContactsListComponent implements OnInit {
   }
 
   createContactParent(contact: Contact) {
-    this.contactsSrv.addContact(contact);
-    this.getContacts();
+    this.contactsSrv.addContact(contact).subscribe(() => this.getContacts());
   }
 }
